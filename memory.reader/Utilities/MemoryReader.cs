@@ -45,11 +45,9 @@ namespace memory.reader.Utilities
 
             while (A < B)
             {
-                result.Add(ReadFromMemoryAddress(current));
+                result.Add(ReadFromMemoryAddress(new IntPtr(A)));
 
                 A += _memoryInformation.RegionSize;
-
-                current = new IntPtr(A);
             }
 
             return result;
@@ -57,7 +55,6 @@ namespace memory.reader.Utilities
 
         public byte[] ReadFromMemoryAddress(IntPtr address)
         {
-            var bytesRead = 0;
             var buffer = default(byte[]);
 
             Native.VirtualQueryEx(_processHandle, address, out _memoryInformation, 28);
@@ -66,12 +63,10 @@ namespace memory.reader.Utilities
             {
                 buffer = new byte[_memoryInformation.RegionSize];
 
-                Native.ReadProcessMemory(_processHandle, _memoryInformation.BaseAddress, buffer, _memoryInformation.RegionSize, ref bytesRead);
-
-                return buffer;
+                Native.ReadProcessMemory(_processHandle, _memoryInformation.BaseAddress, buffer, _memoryInformation.RegionSize, out int bytesRead);
             }
 
-            return default(byte[]);
+            return buffer;
         }
 
     }
