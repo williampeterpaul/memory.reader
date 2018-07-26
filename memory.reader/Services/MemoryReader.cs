@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace memory.reader.Utilities
+namespace memory.reader.Services
 {
     public class MemoryReader : IMemoryReader
     {

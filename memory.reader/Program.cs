@@ -1,7 +1,6 @@
 ﻿using memory.reader.Enumerations;
 using memory.reader.Services;
 using memory.reader.Structures;
-using memory.reader.Utilities;
 using memory.reader.Win32;
 using System;
 using System.Diagnostics;

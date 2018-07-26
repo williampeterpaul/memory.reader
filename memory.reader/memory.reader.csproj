@@ -87,7 +87,7 @@
     <Compile Include="Services\IMemoryReader.cs" />
     <Compile Include="Structures\MemoryInformation.cs" />
     <Compile Include="Structures\SystemInformation.cs" />
-    <Compile Include="Utilities\MemoryReader.cs" />
+    <Compile Include="Services\MemoryReader.cs" />
     <Compile Include="Win32\Native.cs" />
   </ItemGroup>
   <ItemGroup>
